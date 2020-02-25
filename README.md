@@ -1,3 +1,4 @@
+<!-- vim: syntax=Markdown -->
 #gc-styles
 ####react-components library
 #####install
