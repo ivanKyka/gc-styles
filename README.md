@@ -1,9 +1,8 @@
-<!-- vim: syntax=Markdown -->
-#gc-styles
-####react-components library
-#####install
+# gc-styles
+#### react-components library
+##### install
 ```npm i gc-styles```
-#####using
+##### using
 ```
 import {Button} from 'gc-styles'
 ...
