@@ -1,15 +1,18 @@
 {
   "name": "gc-styles",
-  "version": "0.0.4",
-  "description": "",
+  "version": "1.0.0",
+  "description": "react-components library",
   "main": "/dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config webpack.dev.js --open --hot",
-    "transpile": "rm -rf dist && babel src -d dist --copy-files"
+    "transpile": "rm -rf dist && babel src -d dist --copy-files",
+    "predeploy": "webpack --config webpack.prod.js --display-error-details",
+    "deploy": "gh-pages -d build"
   },
-  "author": "",
+  "author": "HaKicha",
   "license": "ISC",
+  "homepage": "http://HaKicha.github.io/gc-styles",
   "peerDependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -25,13 +28,15 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.7",
     "babel-plugin-transform-decorators-legacy": "^1.3.5",
-    "css-loader": "^3.4.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^3.2.0",
     "prop-types": "^15.7.2",
-    "style-loader": "^1.1.3",
+    "terser-webpack-plugin": "^2.3.5",
     "url-loader": "^3.0.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.2"
+    "webpack-dev-server": "^3.10.2",
+    "webpack-merge": "^4.2.2"
   }
 }

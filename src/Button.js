@@ -2,17 +2,11 @@ import React from 'react';
 import styled, {css} from "styled-components";
 import PropTypes from 'prop-types';
 
-export default function Button({type, size, isFilled, disabled, children, onClick, onFocus, onBlur}) {
+export default function Button(props) {
 
     return <StyledButton
-        type={type}
-        isFilled={isFilled}
-        size={size}
-        disabled={disabled}
-        onClick={onClick}
-        onFocus={onFocus}
-        onBlur={onBlur}
-    >{children}</StyledButton>
+        {...props}
+    >{props.children}</StyledButton>
 }
 
 Button.defaultProps = {
@@ -20,10 +14,7 @@ Button.defaultProps = {
     size: 'sm',
     isFilled: true,
     disabled: false,
-    children: 'Button',
-    onClick: function () {},
-    onFocus: function () {},
-    onBlur: function () {}
+    children: 'Button'
 };
 
 Button.propTypes = {
@@ -31,10 +22,7 @@ Button.propTypes = {
     size: PropTypes.oneOf(['sm', 'md', 'lg']),
     isFilled: PropTypes.bool,
     disabled: PropTypes.bool,
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    onClick: PropTypes.func,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
 };
 
 
@@ -77,15 +65,15 @@ function getBorderByPros(props) {
 function getSizeByProps(props) {
     if (props.size === 'sm') return css`min-height: 30px; 
                                         min-width: 80px;
-                                        font-size: 16px;    
+                                        font-size: 12px;    
                                         border-radius: 5px;`;
     if (props.size === 'md') return css`min-height: 45px; 
                                         min-width: 120px;
-                                        font-size: 24px;
+                                        font-size: 18px;
                                         border-radius: 7px;`;
     if (props.size === 'lg') return css`min-height: 60px; 
                                         min-width: 160px;
-                                        font-size: 32px;
+                                        font-size: 24px;
                                         border-radius: 10px;`;
 };
 

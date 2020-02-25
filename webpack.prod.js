@@ -1,29 +1,34 @@
-const path = require('path');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const htmlWebpackPlugin = new HtmlWebpackPlugin({
-    template: path.join(__dirname, "examples/src/index.html"),
-    filename: "./index.html"
-});
-module.exports = {
-    entry: path.join(__dirname, "examples/src/index.js"),
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/,
-                use: "babel-loader",
-                exclude: /node_modules/
-            },
-            {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"]
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const merge = require('webpack-merge');
+const webpack = require('webpack');
+const common = require('./webpack.config.js');
+const path = require("path");
+
+
+module.exports = merge(common, {
+    mode: 'production',
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './examples/index.html'),
+        }),
+        new webpack.DefinePlugin({
+            SERVER_API_URL: JSON.stringify('/')
+        })
+    ],
+    optimization: {
+        minimize: true,
+        minimizer: [ new TerserPlugin({
+            parallel: true,
+            cache: true,
+            extractComments: true,
+            terserOptions: {
+                ecma: 5,
+                ie8: false,
+                safari10: true,
+                compress: true,
+                warnings: true
             }
-        ]
-    },
-    plugins: [htmlWebpackPlugin],
-    resolve: {
-        extensions: [".js", ".jsx"]
-    },
-    devServer: {
-        port: 3001
+        }) ]
     }
-};
+});

@@ -6,6 +6,7 @@ const themes = {
         accent: '#1788ea',
         accentLight: '#56a8ef',
         accentDark: '#1163ab',
+        accentText: '#dadada',
         secondary: '#c9833d',
         secondaryLight: '#d29960',
         secondaryDark: '#b77838',
@@ -16,7 +17,7 @@ const themes = {
         error: '#c30000',
         white: '#fff',
         success: '#3ea838',
-        gray: '#c3c3c3'
+        gray: '#959595'
     },
     darkTheme: {
         primary: '#1b2450',
@@ -25,6 +26,7 @@ const themes = {
         accent: '#bdb713',
         accentLight: '#cfca53',
         accentDark: '#9b9610',
+        accentText: '#292929',
         secondary: '#c9833d',
         secondaryLight: '#d29960',
         secondaryDark: '#b77838',

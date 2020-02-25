@@ -62,6 +62,5 @@ export default function Buttons() {
 const Container = styled.div`
     display: grid;
     grid-template-columns: repeat(7, max-content);
-    grid-auto-rows: max-content;
     justify-content: center;
 `;

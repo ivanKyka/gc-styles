@@ -18,7 +18,7 @@ function Theme({ children, defaultThemeName }) {
     }, []);
 
     return (
-        <ThemeProvider theme={themes[themeName]}>
+        <ThemeProvider theme={themes[themeName || 'lightTheme']}>
             <ThemeContext.Provider value={{
                 theme: themeName,
                 setTheme: setThemeWithSaving

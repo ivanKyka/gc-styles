@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
 import Input from "../../src/Input";
+import Password from "../../src/Password";
+import Tooltip from "../../src/Tooltip";
+import Icon from "../../src/Icon";
 
 export default function Inputs() {
     return (
@@ -8,29 +11,49 @@ export default function Inputs() {
                 <h1>Поля вводу</h1>
                 <Container>
                         <p>Default with console output</p>
-                        <Input defaultValue={'Lorem ipsum'} onChange={e => console.log(e.target.value)}/>
-                        <p>Default with Password</p>
-                        <Input type={'password'} defaultValue={'Lorem ipsum'}/>
+                        <Input placeholder={'Start writing'} onChange={e => console.log(e.target.value)}/>
                         <p>ReadOnly</p>
                         <Input readOnly defaultValue={'Lorem ipsum'}/>
                         <p>Disabled</p>
                         <Input disabled defaultValue={'Lorem ipsum'}/>
-                        <p>Readonly password (Eh-he-he :D)</p>
-                        <Input type={'password'} readOnly defaultValue={'Lorem ipsum'}/>
                         <p>Invalid value</p>
                         <Input defaultValue={'Lorem ipsum'} invalid/>
-                        <p>Invalid password</p>
-                        <Input type={'password'} defaultValue={'Lorem ipsum'} invalid/>
                         <p>Default message</p>
-                        <Input defaultValue={'Lorem ipsum'} message={'Hello'}/>
+                        <Tooltip message={'Hello'}>
+                                <Input defaultValue={'Lorem ipsum'}/>
+                        </Tooltip>
                         <p>Info message</p>
-                        <Input defaultValue={'Lorem ipsum'} message={'Info'} messageType={'info'}/>
+                        <Tooltip message={'Info'} messageType={'info'}>
+                                <Input defaultValue={'Lorem ipsum'}/>
+                        </Tooltip>
                         <p>Warning message</p>
-                        <Input defaultValue={'Lorem ipsum'} message={'Warning'} messageType={'warning'}/>
+                        <Tooltip message={'Warning'} messageType={'warning'}>
+                                <Input defaultValue={'Lorem ipsum'}/>
+                        </Tooltip>
                         <p>Success message</p>
-                        <Input defaultValue={'Lorem ipsum'} message={'Lorem ipsum dolor'} messageType={'success'}/>
+                        <Tooltip message={'Lorem ipsum dolor'} messageType={'success'}>
+                                <Input defaultValue={'Lorem ipsum'}/>
+                        </Tooltip>
                         <p>Error message</p>
-                        <Input defaultValue={'Lorem ipsum'} message={'Error'} messageType={'error'}/>
+                        <Tooltip message={'Error'} messageType={'error'}>
+                                <Input defaultValue={'Lorem ipsum'}/>
+                        </Tooltip>
+                        <p>Activated tooltip</p>
+                        <Tooltip message={'Hello'} isActive={true}>
+                                <Input />
+                        </Tooltip>
+                        <p>Top message</p>
+                        <Tooltip message={'Hello'} orientation={"top"}>
+                                <Input />
+                        </Tooltip>
+                        <p>Left message</p>
+                        <Tooltip message={'Hello'} orientation={"left"}>
+                                <Input />
+                        </Tooltip>
+                        <p>Bottom message</p>
+                        <Tooltip message={'Hello'} orientation={"bottom"}>
+                                <Input />
+                        </Tooltip>
                         <p>Success unlight</p>
                         <Input defaultValue={'Lorem ipsum'} unlight={'success'}/>
                         <p>Warning unlight</p>
@@ -38,7 +61,24 @@ export default function Inputs() {
                         <p>Info unlight</p>
                         <Input defaultValue={'Lorem ipsum'} unlight={'info'}/>
                         <p>Error unlight</p>
-                        <Input defaultValue={'Lorem ipsum'} message={'Error'} messageType={'error'} unlight={'error'}/>
+                        <Input defaultValue={'Lorem ipsum'} unlight={'error'}/>
+                        <p>Default Icon</p>
+                        <Input defaultValue={'Lorem ipsum'} icon={<Icon name={'search'}/>}/>
+                        <p>Left Icon</p>
+                        <Input defaultValue={'Lorem ipsum'} iconPosition={"left"} icon={<Icon name={'search'}/>}/>
+                        <p>Icon with Handler</p>
+                        <Input
+                                defaultValue={'Lorem ipsum'}
+                                icon={<Icon name={'search'}/>}
+                                iconClickHandler={(event, input) => {console.log(event.type + ' ' + input.value)}}
+                        />
+                        <p>Password (test)</p>
+                        <Password regExp={/^test$/}/>
+                        <p>Unlight password (test)</p>
+                        <Password regExp={/^test$/} defaultValue={'test'} unlight={'success'}/>
+                        <p>Invalid password</p>
+                        <Password invalid={true}/>
+
                 </Container>
         </>
     )
@@ -46,8 +86,9 @@ export default function Inputs() {
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: 120px 1fr 120px 1fr;
-    padding-right: 100px;
+    grid-template-columns: 120px max-content 120px max-content;
+    //padding-right: 100px;
+    width: calc(100% - 150px);
     grid-auto-rows: max-content;
     justify-content: center;
     align-items: center;
