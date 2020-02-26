@@ -9,7 +9,7 @@ export default function MultipleInputs(){
 
 
     return <Container>
-        <h1>Поля для введення кількох значень</h1>
+        <h1>Multiple inputs</h1>
         <p>Fixed options</p>
         <MultipleInput
                         options={data2}

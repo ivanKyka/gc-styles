@@ -5,7 +5,7 @@ import Button from "../../src/Button";
 export default function Buttons() {
     return (
         <>
-            <h1>Кнопки</h1>
+            <h1>Buttons</h1>
             <Container>
                 <div>
                     <Button>Default</Button>

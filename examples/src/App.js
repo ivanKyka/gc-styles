@@ -9,13 +9,16 @@ import Dropdowns from "./Dropdowns";
 import Checkboxes from "./Checkboxes";
 import Autocompletes from "./Autocompletes";
 import MultipleInputs from "./MultipleInputs";
-
+import Button from "../../src/Button";
 
 const App = () => (
     <Theme defaultThemeName={localStorage.getItem('theme')}>
         <GlobalStyle/>
         <Container>
-            <ThemeSwitcher />
+            <h1>gc-styles</h1>
+            <ThemeSwitcher>
+                <Button css={`margin: auto`}>Change Theme</Button>
+            </ThemeSwitcher>
             <MultipleInputs/>
             <Autocompletes />
             <Checkboxes/>
@@ -30,6 +33,8 @@ const App = () => (
 const Container = styled.div`
     min-height: 100vh;
     height: max-content;
+    text-align: center;
 `;
+
 
 export default App;

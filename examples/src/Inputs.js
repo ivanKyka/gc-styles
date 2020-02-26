@@ -8,7 +8,7 @@ import Icon from "../../src/Icon";
 export default function Inputs() {
     return (
         <>
-                <h1>Поля вводу</h1>
+                <h1>Inputs</h1>
                 <Container>
                         <p>Default with console output</p>
                         <Input placeholder={'Start writing'} onChange={e => console.log(e.target.value)}/>
@@ -72,14 +72,6 @@ export default function Inputs() {
                                 icon={'search'}
                                 iconClickHandler={(event, input) => {console.log(event.type + ' ' + input.value)}}
                         />
-                        <p></p>
-                        <Tooltip message={'Hello'} orientation={"left"}>
-                                <Input
-                                    defaultValue={'Lorem ipsum'}
-                                    icon={'search'}
-                                    iconClickHandler={(event, input) => {console.log(event.type + ' ' + input.value)}}
-                                />
-                        </Tooltip>
                         <p>Password (test)</p>
                         <Password regExp={/^test$/}/>
                         <p>Unlight password (test)</p>
@@ -94,7 +86,7 @@ export default function Inputs() {
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: 120px max-content;
+    grid-template-columns: 120px 1fr;
     //padding-right: 100px;
     width: calc(100%);
     grid-auto-rows: max-content;

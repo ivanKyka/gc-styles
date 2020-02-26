@@ -4,7 +4,7 @@ import Dropdown from "../../src/Dropdown";
 
 export default function Dropdowns(){
     return <Container>
-        <h1>Випадаючі меню</h1>
+        <h1>Dropdown panes</h1>
 
         <Dropdown title={'Випадаюче меню'}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi aperiam assumenda commodi consequatur distinctio dolorem esse et facilis fuga fugit impedit ipsa itaque iure, laborum laudantium magnam minima minus nemo nisi optio, perferendis praesentium provident quaerat, quasi recusandae reprehenderit sed sit soluta tempora tempore tenetur voluptas voluptates! Architecto cum cupiditate deleniti dolor dolore molestias perspiciatis ut voluptates voluptatum. Deleniti dolorem enim harum id nobis saepe sapiente sunt veniam vitae voluptate. Distinctio fuga iure laborum maxime molestias quae voluptate! Autem consectetur consequuntur, doloribus esse illum iste maxime nobis obcaecati odit quasi quidem quod, repudiandae sequi sint totam vel, vero voluptas!
