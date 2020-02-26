@@ -14,7 +14,7 @@ export default function Tooltip(props) {
 Tooltip.propTypes = {
     children: PropTypes.element.isRequired,
     message: PropTypes.string,
-    messageType: PropTypes.string,
+    messageType: PropTypes.oneOf(['default', 'info', 'success', 'warning', 'error']),
     orientation: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
     isActive: PropTypes.bool
 };
@@ -123,5 +123,13 @@ const Wrapper = styled.div`
         visibility: visible;
         z-index: 999;
         ${props => tooltipActiveStyles[props.orientation]}
+    }
+    
+    &:focus-within {
+      span{
+            visibility: visible;
+            z-index: 999;
+            ${props => tooltipActiveStyles[props.orientation]}
+        }
     }
 `;

@@ -63,15 +63,23 @@ export default function Inputs() {
                         <p>Error unlight</p>
                         <Input defaultValue={'Lorem ipsum'} unlight={'error'}/>
                         <p>Default Icon</p>
-                        <Input defaultValue={'Lorem ipsum'} icon={<Icon name={'search'}/>}/>
+                        <Input defaultValue={'Lorem ipsum'} icon={'search'}/>
                         <p>Left Icon</p>
-                        <Input defaultValue={'Lorem ipsum'} iconPosition={"left"} icon={<Icon name={'search'}/>}/>
+                        <Input defaultValue={'Lorem ipsum'} iconPosition={"left"} icon={'search'}/>
                         <p>Icon with Handler</p>
                         <Input
                                 defaultValue={'Lorem ipsum'}
-                                icon={<Icon name={'search'}/>}
+                                icon={'search'}
                                 iconClickHandler={(event, input) => {console.log(event.type + ' ' + input.value)}}
                         />
+                        <p></p>
+                        <Tooltip message={'Hello'} orientation={"left"}>
+                                <Input
+                                    defaultValue={'Lorem ipsum'}
+                                    icon={'search'}
+                                    iconClickHandler={(event, input) => {console.log(event.type + ' ' + input.value)}}
+                                />
+                        </Tooltip>
                         <p>Password (test)</p>
                         <Password regExp={/^test$/}/>
                         <p>Unlight password (test)</p>
@@ -86,9 +94,9 @@ export default function Inputs() {
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: 120px max-content 120px max-content;
+    grid-template-columns: 120px max-content;
     //padding-right: 100px;
-    width: calc(100% - 150px);
+    width: calc(100%);
     grid-auto-rows: max-content;
     justify-content: center;
     align-items: center;

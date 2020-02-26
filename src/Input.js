@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import styled, {css} from 'styled-components';
 import PropTypes from 'prop-types';
+import Icon from "./Icon";
 
 export default function Input(props) {
     const input = useRef(null);
@@ -15,7 +16,7 @@ export default function Input(props) {
             {props.icon && <IconButton
                 onClick={e => props.iconClickHandler(e, input.current)}
                 right={props.iconPosition === 'right'}
-            >{props.icon}</IconButton>}
+            ><Icon name={props.icon}/></IconButton>}
         </Container> : <InputField {...props} ref={props.reference}/>
     )
 }
@@ -24,7 +25,7 @@ Input.propTypes = {
     readOnly: PropTypes.bool,
     disabled: PropTypes.bool,
     invalid: PropTypes.bool,
-    icon: PropTypes.element,
+    icon: PropTypes.string,
     iconClickHandler: PropTypes.func,
     iconPosition: PropTypes.oneOf(['left', 'right']),
     unlight: PropTypes.oneOf(['none' ,'default', 'info', 'success', 'warning', 'error']),

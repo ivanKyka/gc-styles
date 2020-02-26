@@ -60,7 +60,7 @@ export default function Buttons() {
 }
 
 const Container = styled.div`
-    display: grid;
-    grid-template-columns: repeat(7, max-content);
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 `;

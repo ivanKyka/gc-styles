@@ -32,8 +32,8 @@ export default function Checkboxes() {
 }
 
 const Container = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
-    grid-gap: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
     justify-content: center;
 `;

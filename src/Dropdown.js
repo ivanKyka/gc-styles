@@ -83,7 +83,7 @@ function getHeadColorsByProps(props) {
 const HeadPane = styled.div`
     display: grid;
     grid-template-columns: ${props => props.hasIcon && '50px'} 1fr 60px;
-    height: 40px;
+    min-height: 40px;
     margin: 10px 10px 0;
     width: calc(100% - 20px);
     max-width: 100%;
